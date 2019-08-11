@@ -1,11 +1,6 @@
-import React, {
-  memo,
-  useState,
-  useCallback,
-  useEffect,
-  useDebugValue
-} from "react";
+import React, { memo, useState, useCallback, useEffect } from "react";
 import Modal from "@components/Modal";
+import Field from "@components/Field";
 import { FormContainerModel } from "./models";
 
 const FormContainer = (props: FormContainerModel) => {
@@ -49,13 +44,24 @@ const FormContainer = (props: FormContainerModel) => {
   return (
     <Modal>
       <div>
-        <input onChange={handleFirstNameChange} value={firstName} type="text" />
-        <input
-          onChange={handleMiddleNameChange}
-          value={middleName}
-          type="text"
+        <Field
+          label="First Name"
+          value={firstName}
+          name="firstName"
+          onChange={handleFirstNameChange}
         />
-        <input onChange={handleLastNameChange} value={lastName} type="text" />
+        <Field
+          label="Middle Name"
+          value={middleName}
+          name="middleName"
+          onChange={handleMiddleNameChange}
+        />
+        <Field
+          label="Last Name"
+          value={lastName}
+          name="lastName"
+          onChange={handleLastNameChange}
+        />
       </div>
       <div>
         <button onClick={clearValues}>Очистить</button>{" "}

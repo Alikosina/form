@@ -3,7 +3,7 @@ import {
   FETCH_FORM_VALUES_SUCCESS,
   FETCH_FORM_VALUES_FAILED
 } from "./formConstants";
-import { FormStateModel } from "./models";
+import { FormStateModel, FormActionsModel } from "./models";
 
 const initialState: FormStateModel = {
   loading: true,
@@ -15,7 +15,7 @@ const initialState: FormStateModel = {
   }
 };
 
-export default (state = initialState, action: any) => {
+export default (state = initialState, action: FormActionsModel) => {
   switch (action.type) {
     case FETCH_FORM_VALUES:
       return { ...state, loading: true };

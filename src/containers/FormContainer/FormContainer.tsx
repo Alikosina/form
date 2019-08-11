@@ -1,6 +1,7 @@
 import React, { memo, useState, useCallback, useEffect } from "react";
 import Modal from "@components/Modal";
 import Field from "@components/Field";
+import Button from "@components/Button";
 import { FormContainerModel } from "./models";
 
 const FormContainer = (props: FormContainerModel) => {
@@ -64,8 +65,8 @@ const FormContainer = (props: FormContainerModel) => {
         />
       </div>
       <div>
-        <button onClick={clearValues}>Очистить</button>{" "}
-        <button onClick={resetValues}>Отменить</button>
+        <Button onClick={clearValues}>Очистить</Button>
+        <Button onClick={resetValues}>Отменить</Button>
       </div>
     </Modal>
   );

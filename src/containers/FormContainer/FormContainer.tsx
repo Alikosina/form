@@ -65,8 +65,8 @@ const FormContainer = (props: FormContainerModel) => {
         />
       </div>
       <div>
-        <Button onClick={clearValues}>Очистить</Button>
-        <Button onClick={resetValues}>Отменить</Button>
+        <Button onClick={clearValues}>очистить</Button>
+        <Button onClick={resetValues}>отменить</Button>
       </div>
     </Modal>
   );

@@ -14,6 +14,12 @@ app.get("/api/values", (req, res) => {
   });
 });
 
+app.put("/api/send", (req, res) => {
+  res.send({
+    success: true
+  });
+});
+
 // start the server
 app.listen(port);
 console.log("Server started! At http://localhost:" + port);

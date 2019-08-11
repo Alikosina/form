@@ -3,6 +3,18 @@ import Modal from "@components/Modal";
 import Field from "@components/Field";
 import Button from "@components/Button";
 import { FormContainerModel } from "./models";
+import { sendValues } from "@store/form/formActions";
+import { connect } from "react-redux";
+import styled from "styled-components";
+
+const StyledButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1199px) {
+    flex-direction: column;
+    align-items: ;
+  }
+`;
 
 const FormContainer = (props: FormContainerModel) => {
   const [firstName, setFirstName] = useState("");
@@ -29,11 +41,13 @@ const FormContainer = (props: FormContainerModel) => {
     },
     [middleName]
   );
+
   const clearValues = useCallback(() => {
     setFirstName("");
     setMiddleName("");
     setLastName("");
   }, []);
+
   const resetValues = useCallback(() => {
     setFirstName(props.firstName);
     setMiddleName(props.middleName);
@@ -42,6 +56,17 @@ const FormContainer = (props: FormContainerModel) => {
   useEffect(() => {
     resetValues();
   }, []);
+
+  const onSendValues = useCallback(() => {
+    const { dispatch } = props;
+    const values = {
+      firstName,
+      lastName,
+      middleName
+    };
+    dispatch(sendValues(values));
+  }, [firstName, lastName, middleName]);
+
   return (
     <Modal>
       <div>
@@ -64,12 +89,13 @@ const FormContainer = (props: FormContainerModel) => {
           onChange={handleLastNameChange}
         />
       </div>
-      <div>
+      <StyledButtonsContainer>
         <Button onClick={clearValues}>очистить</Button>
         <Button onClick={resetValues}>отменить</Button>
-      </div>
+        <Button onClick={onSendValues}>отправить</Button>
+      </StyledButtonsContainer>
     </Modal>
   );
 };
 
-export default memo(FormContainer);
+export default connect()(memo(FormContainer));

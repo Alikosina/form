@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack-dev-server --mode development"
+    "start:dev": "webpack-dev-server --mode development",
+    "start:serv": "node server"
   },
   "author": "Ali Sloyan",
   "license": "ISC",

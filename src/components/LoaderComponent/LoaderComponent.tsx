@@ -13,7 +13,7 @@ const StyledLoaderContainer = styled.div`
 const LoaderComponent = () => {
   return (
     <StyledLoaderContainer>
-      <Loader type="ThreeDots" color="#00BFFF" height="100" width="100" />
+      <Loader type="ThreeDots" color="#00ae68" height="100" width="100" />
     </StyledLoaderContainer>
   );
 };

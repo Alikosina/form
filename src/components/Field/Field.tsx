@@ -32,6 +32,7 @@ const StyledInput = styled.input`
   padding: 8px;
   box-sizing: border-box;
   transition: 0.3s;
+  font-size: 13px;
   &:focus {
     border-color: dodgerBlue;
     box-shadow: 0 0 8px 0 dodgerBlue;

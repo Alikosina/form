@@ -1,4 +1,10 @@
-import React, { memo, useState, useCallback, useEffect } from "react";
+import React, {
+  memo,
+  useState,
+  useCallback,
+  useEffect,
+  useDebugValue
+} from "react";
 import Modal from "@components/Modal";
 import { FormContainerModel } from "./models";
 
@@ -27,10 +33,18 @@ const FormContainer = (props: FormContainerModel) => {
     },
     [middleName]
   );
-  useEffect(() => {
+  const clearValues = useCallback(() => {
+    setFirstName("");
+    setMiddleName("");
+    setLastName("");
+  }, []);
+  const resetValues = useCallback(() => {
     setFirstName(props.firstName);
     setMiddleName(props.middleName);
     setLastName(props.lastName);
+  }, [props.firstName, props.lastName, props.middleName]);
+  useEffect(() => {
+    resetValues();
   }, []);
   return (
     <Modal>
@@ -42,6 +56,10 @@ const FormContainer = (props: FormContainerModel) => {
           type="text"
         />
         <input onChange={handleLastNameChange} value={lastName} type="text" />
+      </div>
+      <div>
+        <button onClick={clearValues}>Очистить</button>{" "}
+        <button onClick={resetValues}>Отменить</button>
       </div>
     </Modal>
   );

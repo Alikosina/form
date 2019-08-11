@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
 const AppContainer = () => {
   return <h1>Hello Form</h1>;
 };
 
-export default AppContainer;
+export default memo(AppContainer);

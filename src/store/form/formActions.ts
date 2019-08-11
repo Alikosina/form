@@ -12,9 +12,11 @@ export const fetchValues = () => (dispatch: any) => {
   fetch(`${BASE_URL}values`)
     .then(r => r.json())
     .then(result => {
-      dispatch({
-        type: FETCH_FORM_VALUES_SUCCESS,
-        payload: result
-      });
+      setTimeout(() => {
+        dispatch({
+          type: FETCH_FORM_VALUES_SUCCESS,
+          payload: result
+        });
+      }, 500);
     });
 };

@@ -8,7 +8,9 @@ const port = 8080;
 
 app.get("/api/values", (req, res) => {
   res.send({
-    some: "dsfsdfsdf"
+    firstName: "Александр",
+    middleName: "Сергеевич",
+    lastName: "Пушкин"
   });
 });
 

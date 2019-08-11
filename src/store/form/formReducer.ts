@@ -16,5 +16,11 @@ const initialState: FormStateModel = {
 };
 
 export default (state = initialState, action: any) => {
+  switch (action.type) {
+    case FETCH_FORM_VALUES:
+      return { ...state, loading: true };
+    case FETCH_FORM_VALUES_SUCCESS:
+      return { ...state, loading: false, data: action.payload };
+  }
   return state;
 };

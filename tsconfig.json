@@ -24,7 +24,8 @@
       "@app/*": ["src/*"],
       "@containers/*": ["src/containers/*"],
       "@components/*": ["src/components/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
+      "@config/*": ["src/config/*"]
     },
     "sourceMap": true,
     "noImplicitAny": true,
